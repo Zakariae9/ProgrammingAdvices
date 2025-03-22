@@ -13,7 +13,7 @@ void    PrintDigits(int Number)
         cout << LastDigit(Number)<< endl;
 }
 
-int SumOfDigits(int Number)
+int SumDigits(int Number)
 {
     int Sum = 0;
 
@@ -35,7 +35,7 @@ int ReversedNumber(int Number)
 
 void    PrintSumDigits(int Number)
 {
-    cout << "Sum of digits = " << SumOfDigits(Number);
+    cout << "Sum of digits = " << SumDigits(Number);
     cout << endl;
 }
 

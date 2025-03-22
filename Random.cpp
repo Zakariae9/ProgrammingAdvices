@@ -12,7 +12,7 @@ char	GetRandomChar(enCharType CharType)
 {
 	switch (CharType)
 	{
-		case enCharType::CapetalLatter:
+		case enCharType::CapetalLetter:
 			return (char) RandomNumber(65, 90);
 		case enCharType::Digit:
 			return (char) RandomNumber(48, 57);
@@ -23,15 +23,13 @@ char	GetRandomChar(enCharType CharType)
 	}
 }
 
-string	RandomLatters()
+string	GenerateWord(enCharType Type, int Length)
 {
 	string	Word = "";
 
-	Word = GetRandomChar(enCharType::CapetalLatter);
-	Word += GetRandomChar(enCharType::CapetalLatter);
-	Word += GetRandomChar(enCharType::CapetalLatter);
-	Word += GetRandomChar(enCharType::CapetalLatter);
-	
+	for (int i = 0; i < Length; i++)
+		Word += GetRandomChar(Type);
+		
 	return (Word);
 }
 
@@ -39,16 +37,18 @@ string	GenerateKey()
 {
 	string	Key = "";
 
-	for (int i =1; i <= ; i++)
-		Key += RandomLatters() + '-';
-	key += RandomLatters();
+	Key += GenerateWord(enCharType::CapetalLetter, 4) + '-';
+	Key += GenerateWord(enCharType::CapetalLetter, 4) + '-';
+	Key += GenerateWord(enCharType::CapetalLetter, 4) + '-';
+	Key += GenerateWord(enCharType::CapetalLetter, 4);
+
 	return Key;
 }
 
 void	PrintKeys(int KeysNumber)
 {
-	for (int i =1; i <= KeyNumber; i++)
+	for (int i =1; i <= KeysNumber; i++)
 	{
-		cout << "Key [" << i"] : " << GenerateKey()<< endl;
+		cout << "Key [" << i <<"] : " << GenerateKey()<< endl;
 	}
 }
