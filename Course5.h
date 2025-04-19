@@ -6,6 +6,7 @@
 #include <string>
 #include <cmath>
 #include <ctime>
+#include <cmath>
 
 using namespace std;
 
@@ -47,7 +48,22 @@ void			SwapNumbers(int &N1, int &N2);
 void			CopyArrayInReverseOrder(int arrSrc[], int arrDest[], int arrLength);
 void			PrintArrayKeys(string arrKeys[], int KeysNumber);
 void			FillArrayWithKeys(string arr[], int arrLength);
-int				PositionNumberInArray(int arr[100], int arrLength, int Number);
+short			FindNumberPositionInArray(int arr[100], int arrLength, int Number);
+bool			isTherNumberInArray(int arr[100], int arrLenght, int Number);
+void			AddNumberToArray(int arr[100], int &arrLength, int Number);
+void			InputUserNumberInArray(int arr[100], int &arrLength);
+void			CopyArrayWithAddArrayElemnts(int SrcArr[100], int DestArr[100], int SrcLength, int &DestLength);
+void			CopyOnlyOddNumbersToArrayWithAddNumberToArray(int arrSrc[100], int arrDest[100], int SrcLength, int &DestLenght);
+void			CopyOnlyPrimeNumbersToArray(int arrSrc[100], int arrDest[100], int SrcLenght, int &DestLenght);
+void			FillArrayWithDistinctNumbers(int SrcArr[100], int DestArr[100], int SrcLength, int &DestLenght);
+bool			isPalindromeArray(int arr[100], int arrLength);
+int				OddCount(int arr[100], int arrLength);
+int				EvenCount(int arr[100], int arrLenght);
+int				PositiveCount(int arr[100], int arrLength);
+int				NegativeCount(int arr[100], int arrLength);
+float			Myabs(float Number);
+int				Myround(float Number);
+
 
 
 

@@ -1,14 +1,140 @@
 #include "Course5.h"
 
-int	PositionNumberInArray(int arr[100], int arrLength, int Number)
+int	Myround(float Number)
 {
-	int	Pos = 0;
+	int		FirstPart = Number;
+	float	SecondPart;
 
+	if (Number < 0)
+		Number = Myabs(Number);
+
+	SecondPart = Number - FirstPart;
+
+	if (SecondPart == 0)
+		return (Number);
+	if (SecondPart >= 0.5)
+		return Number + 1;
+	else
+		return (FirstPart);
+}
+
+float	Myabs(float Number)
+{
+	return (Number < 0)? Number * -1: Number;
+}
+
+int	NegativeCount(int arr[100], int arrLength)
+{
+	return arrLength - PositiveCount(arr, arrLength);
+}
+
+int	PositiveCount(int arr[100], int arrLength)
+{
+	int Counter = 0;
+	for (int i =0; i < arrLength; i++)
+	{
+		if (arr[i] >= 0)
+			Counter++;
+	}
+	return Counter;
+}
+
+int	EvenCount(int arr[100], int arrLenght)
+{
+	return (arrLenght - OddCount(arr, arrLenght));
+}
+
+int	OddCount(int arr[100], int arrLength)
+{
+	int	Counter = 0;
+	int	TempArr[100];
+	int	TempLen = 0;
+
+	CopyOnlyOddNumbersToArrayWithAddNumberToArray(arr, TempArr, arrLength, TempLen);
+	for (int i =0; i < TempLen; i++)
+		Counter++;
+	return (Counter);
+}
+
+bool	isPalindromeArray(int arr[100], int arrLength)
+{
+	int	Half = arrLength / 2;
+
+	for (int i = 0; i <= Half; i++)
+	{
+		if (arr[i] != arr[arrLength - i - 1])
+			return (0);
+	}
+	return (1);
+}
+
+void	FillArrayWithDistinctNumbers(int SrcArr[100], int DestArr[100], int SrcLength, int &DestLenght)
+{
+	for (int i =0; i < SrcLength; i++)
+	{
+		if (FindNumberPositionInArray(DestArr, DestLenght, SrcArr[i]) == -1)
+			AddNumberToArray(DestArr, DestLenght, SrcArr[i]);
+	}
+}
+
+void	CopyOnlyPrimeNumbersToArray(int arrSrc[100], int arrDest[100], int SrcLenght, int &DestLenght)
+{
+	for (int i =0; i < DestLenght; i++)
+	{
+		if (CheckPrime(arrSrc[i]) == enPrimeNotPrime::Prime)
+			AddNumberToArray(arrDest, DestLenght, arrSrc[i]);
+	}
+}
+
+void	CopyOnlyOddNumbersToArrayWithAddNumberToArray(int arrSrc[100], int arrDest[100], int SrcLength, int &DestLenght)
+{
+	for (int i =0; i < SrcLength; i++)
+	{
+		if (arrSrc[i] & 1)
+			AddNumberToArray(arrDest, DestLenght, arrSrc[i]);
+	}
+}
+
+void	CopyArrayWithAddArrayElemnts(int SrcArr[100], int DestArr[100], int SrcLength, int &DestLength)
+{
+	int	i = 0;
+
+	for (int i = 0; i < SrcLength; i++)
+		AddNumberToArray(DestArr, DestLength, SrcArr[i]);
+}
+
+void	InputUserNumberInArray(int arr[100], int &arrLength)
+{
+	int		Number;
+	bool	AddMore = true;
+
+	do 
+	{
+		Number = ReadPositiveNumber("Please enter a number?");
+		AddNumberToArray(arr, arrLength, Number);
+		
+		cout << "Do you want to add more number? [0]:No, [1]:Yes\n";
+		cin >> AddMore;
+	}while (AddMore);
+}
+
+void	AddNumberToArray(int arr[100], int &arrLength, int Number)
+{
+	arr[arrLength] = Number;
+	arrLength++;
+}
+
+bool	isTherNumberInArray(int arr[100], int arrLenght, int Number)
+{
+	return (FindNumberPositionInArray(arr, arrLenght, Number) != 0);
+}
+
+short	FindNumberPositionInArray(int arr[100], int arrLength, int Number)
+{
 	for (int i = 0; i < arrLength; i++)
 	{
 		if (arr[i] == Number)
-			return (Pos);
-		Pos++;
+			return (i);
 	}
 	return (-1);
 }
@@ -123,7 +249,7 @@ void	FillArrayWith1ToN(int arr[], int To)
 void	FillArrayWithRandomNumber(int arr[], int arrLength)
 {
 	for (int i = 0; i < arrLength; i++)
-		arr[i] = RandomNumber(1, 100);
+		arr[i] = RandomNumber(-100, 100);
 }
 
 void	ReadArray(int &arrLength, int arr[])

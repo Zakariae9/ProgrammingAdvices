@@ -2,26 +2,12 @@
 
 int main()
 {
-	//34
-	srand(time(0));
+	//47
 
-	int		arrLength, arr[100];
-	
-	arrLength = ReadPositiveNumber("How many Key you want!");
+	float	Number = 0;
+	cin >> Number;
 
-	cout << "\n\nArray elements:\n";
-	FillArrayWithRandomNumber(arr, arrLength);
-	PrintArray(arr, arrLength);
-	
-	int	NumberToFound = ReadPositiveNumber("Please enter a number to search for?");
-	int	Pos = PositionNumberInArray(arr, arrLength, NumberToFound);
-	cout << "Number you are looking for is: "<< NumberToFound;
-	if (Pos == -1)
-		cout << "\nThe number is not found:-("<<endl;
-	else
-	{
-		cout << "\nThe number found at position: "<< Pos
-			<< "\nThe number found its order : " << Pos+1 << endl ;			 
-	}
+	cout << "My round Result: " << Myround(Number) << endl;
+	cout << "C++ round Result: " << round(Number) << endl;
 	
 }
