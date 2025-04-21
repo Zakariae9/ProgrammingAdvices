@@ -7,7 +7,7 @@ int main()
 	float	Number = 0;
 	cin >> Number;
 
-	cout << "My round Result: " << Myround(Number) << endl;
-	cout << "C++ round Result: " << round(Number) << endl;
+	cout << "My Mysqrt Result: " << Mysqrt(Number) << endl;
+	cout << "C++ sqrt Result: " << sqrt(Number) << endl;
 	
 }

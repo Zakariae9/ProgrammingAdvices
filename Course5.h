@@ -63,6 +63,10 @@ int				PositiveCount(int arr[100], int arrLength);
 int				NegativeCount(int arr[100], int arrLength);
 float			Myabs(float Number);
 int				Myround(float Number);
+float			GetFractionPart(float Number);
+int				MyFloor(float Number);
+int				MyCeil(float Number);
+float			Mysqrt(float Number);
 
 
 

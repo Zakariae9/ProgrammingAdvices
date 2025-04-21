@@ -1,27 +1,5 @@
 #include "Course5.h"
 
-int	Myround(float Number)
-{
-	int		FirstPart = Number;
-	float	SecondPart;
-
-	if (Number < 0)
-		Number = Myabs(Number);
-
-	SecondPart = Number - FirstPart;
-
-	if (SecondPart == 0)
-		return (Number);
-	if (SecondPart >= 0.5)
-		return Number + 1;
-	else
-		return (FirstPart);
-}
-
-float	Myabs(float Number)
-{
-	return (Number < 0)? Number * -1: Number;
-}
 
 int	NegativeCount(int arr[100], int arrLength)
 {
